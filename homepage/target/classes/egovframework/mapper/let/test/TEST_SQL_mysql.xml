@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="testDAO">
+	<resultMap id="test" type="egovframework.let.test.service.TestVO">
+		<result property="testId" column="CRUD_ID"/>
+		<result property="testCtgry" column="CRUD_CTGRY"/>
+		<result property="testSj" column="CRUD_SJ"/>
+		<result property="testCn" column="CRUD_CN"/>
+		<result property="testNm" column="USER_NM"/>
+		<result property="testFrstRegistPnttm" column="FRST_REGIST_PNTTM"/>
+	</resultMap>
+	
+	<insert id="testDAO.insertTest" parameterType="egovframework.let.test.service.TestVO">
+		INSERT INTO letcrud(
+			CRUD_SJ,
+			CRUD_ID,
+			CRUD_CTGRY,
+			CRUD_CN,
+			USER_NM,
+			FRST_REGIST_PNTTM
+		) VALUES (
+			#{testSj},
+			#{testId},
+			#{testCtgry},
+			#{testCn},
+			#{testNm},
+			NOW()
+		)
+	</insert>
+	
+	<select id = "testDAO.selectTest" resultMap="test">
+		SELECT
+		CRUD_ID,
+		CRUD_CTGRY,
+		CRUD_SJ,
+		CRUD_CN,
+		USER_NM,
+		FRST_REGIST_PNTTM	
+		FROM letcrud
+		WHERE CRUD_ID = #{testId}
+	</select>
+	
+	<select id="testDAO.selectTestList" resultMap="test">
+		SELECT
+			CRUD_ID,
+			CRUD_CTGRY,
+			CRUD_SJ,
+			CRUD_CN,
+			USER_NM,
+			FRST_REGIST_PNTTM
+			FROM LETCRUD
+			ORDER BY CRUD_ID DESC
+			LIMIT #{recordCountPerPage} OFFSET #{firstIndex}
+	</select>
+	
+	<select id="testDAO.selectTestListCnt" resultType="java.lang.Integer">
+		SELECT
+			COUNT(*) CNT
+		FROM letcrud
+	</select>
+	
+	<update id="testDAO.updateTest" parameterType="egovframework.let.test.service.TestVO">
+		UPDATE letcrud SET
+			CRUD_SJ = #{testSj},
+			CRUD_CN = #{testCn},
+			CRUD_CTGRY = #{testCtgry},
+			USER_NM = #{testNm}
+		WHERE CRUD_ID = #{testId}
+	</update>
+	
+	<delete id="testDAO.deleteTest" parameterType="egovframework.let.test.service.TestVO">
+		DELETE FROM letcrud
+		WHERE CRUD_ID = #{testId}
+	</delete>
+</mapper>
