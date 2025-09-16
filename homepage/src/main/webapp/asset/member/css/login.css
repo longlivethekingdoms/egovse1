@@ -480,9 +480,11 @@ select {
     max-width: 1200px;
 }
 /* header */
+/*
 .site-header {
     background:#025490;
 }
+
 .site-header > .wrap {
     position: relative;
     overflow: hidden;
@@ -500,7 +502,7 @@ select {
     display:block;
     height:100%;
 }
-
+*/
 /* layout */
 /*body{background:#f7f7f7  url('../images/login/bg_y.gif') center 0 repeat-y;min-height:100%;}
 #wrap{background:url('../images/login/bg_html.gif') 0 0 repeat-x;}

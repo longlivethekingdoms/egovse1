@@ -33,7 +33,6 @@
 	</c:choose>
 </head>
 <body>
-header
 	<c:if test="${param.headerUseAt ne 'N'}">
 		<header class="site-header">
 			<div class="util">
@@ -42,12 +41,12 @@ header
 						<li><a href="/">HOME</a></li>
 						<c:choose>
 							<c:when test="${empty USER_INFO.id}">
-								<li><a href="/uat/uia/egovLoginUsr.do">로그인</a></li>
+								<li><a href="/login/login.do">로그인</a></li>
 								<li><a href="/join/siteUseAgree.do">회원가입</a></li>
 							</c:when>
 							<c:otherwise>
 								<li><strong><c:out value="${USER_INFO.name}"/></strong>님 환영합니다</li>
-								<li><a href="/uat/uia/actionLogout.do">로그아웃</a></li>
+								<li><a href="/login/actionLogout.do">로그아웃</a></li>
 							</c:otherwise>
 						</c:choose>
 					</ul>
@@ -63,6 +62,12 @@ header
 						<li>
 							<a href="/board/selectList.do?boardType=IMAGE">이미지 게시판</a>
 						</li>
+						
+						<c:if test="${USER_INFO.id eq 'admin' }">
+							<li>
+								<a href="/admin/member/memberList.do">회원관리</a>
+							</li>
+						</c:if>
 					</ul>
 				</nav>
 			</div>

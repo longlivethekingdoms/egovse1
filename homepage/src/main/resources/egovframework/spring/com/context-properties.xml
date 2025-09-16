@@ -19,6 +19,11 @@
 	        	<entry key="photoThumbHeight" value="140"/>
 	        	<entry key="imagePageUnit" value="12"/>
 	        	<entry key="imagePageSize" value="10"/>
+	        	
+	        	<!--G메일-->
+	        	<entry key="mail.gmailUser" value="dddvps10@gmail.com"/>
+	        	<entry key="mail.gmailUserName" value="이윤찬-프로젝트"/>
+	        	<entry key="mail.gmailPassword" value="xrlbfgcebmdejivi"/>
 	        </map>
 		</property>
 	</bean>

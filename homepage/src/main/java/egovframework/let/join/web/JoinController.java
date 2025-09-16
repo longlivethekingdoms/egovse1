@@ -102,9 +102,21 @@ public class JoinController {
 	//회원가입
 	@RequestMapping(value = "join/insertMember.do")
 	public String insertMember(@ModelAttribute("searchVO") JoinVO vo, HttpServletRequest request, ModelMap model) throws Exception{
+		if(!EgovStringUtil.isEmpty(vo.getLoginType())) {
+			//일반가입을 제외하고는 ID값은 SNS+ID 값
+			if(!("normal").equals(vo.getLoginType())) {
+				vo.setEmplyrId(vo.getLoginType()+"-"+vo.getEmplyrId());
+				vo.setPassword("");
+				vo.setPasswordHint("SNS가입자");
+				vo.setPasswordCnsr("SNS가입자");
+			}
+		}		
 		if(joinService.duplicateCheck(vo) > 0) {
-			model.addAttribute("message", egovMessageSource.getMessage("fail.duplicate.member"));
-			
+			if(!("normal").equals(vo.getLoginType())) {
+				model.addAttribute("message", "이미 등록 된 SNS계정입니다.");
+			}else {
+				model.addAttribute("message", egovMessageSource.getMessage("fail.duplicate.member")); //이미 사용중인 ID입니다.
+			}		
 			return "forward:/login/login.do";
 		}else {
 			joinService.insertJoin(vo);
