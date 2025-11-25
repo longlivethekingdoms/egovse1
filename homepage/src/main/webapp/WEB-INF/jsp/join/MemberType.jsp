@@ -50,6 +50,18 @@
 				</div>
 			</div>
 		</article>
+		
+		<article>
+			<h3 class="icon2 ico-user">SNS회원</h3>
+			<div class="confirm_box">
+				<p class="mB20">네이버 회원</p>
+				<div class="btn-cont">
+					<a class="btn-naver" href="${naverAuthUrl}" data-type="join">
+						<img src="/asset/front/images/common/btn-naver.png" width="150" alt="네이버 로그인 버튼">
+					</a>
+				</div>
+			</div>
+		</article>
 	</div>
 </form>
 

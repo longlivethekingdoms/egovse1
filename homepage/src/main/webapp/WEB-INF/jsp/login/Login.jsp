@@ -36,6 +36,10 @@
 								<a class="btn-kakao" href="#" data-type="login">
 									<img src="/asset/front/images/common/btn-kakao.png" width="200" alt="카카오 로그인 버튼"/>
 								</a>
+								
+								<a class="btn-naver" href="${naverAuthUrl}" data-type="login">
+									<img src="/asset/front/images/common/btn-naver.png" width="180" alt="네이버 로그인 버튼"/>
+								</a>
 							</div>
 						</fieldset>
 					</form>

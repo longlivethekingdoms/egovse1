@@ -53,7 +53,7 @@
 		</table>
 		<div class="btn-cont ac">
 			<c:url var="listUrl" value="/admin/member/memberList.do${_BASE_PARAM}"/>
-			<a href="${listUrl}}" class="btn">목록</a>
+			<a href="${listUrl}" class="btn">목록</a>
 		</div>
 	</div>
 </div>

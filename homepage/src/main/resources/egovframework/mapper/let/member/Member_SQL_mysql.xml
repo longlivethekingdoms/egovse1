@@ -4,14 +4,14 @@
 <mapper namespace="memberDAO">
 	
 	<resultMap id="findId" type="egovframework.let.member.service.MemberVO">
-		<result property="esntlld" column="ESNTL_ID"/>
+		<result property="esntlId" column="ESNTL_ID"/>
 		<result property="emplyrId" column="EMPLYR_ID"/>
 		<result property="userNm" column="USER_NM"/>
 		<result property="emailAdres" column="EMAIL_ADRES"/>
 	</resultMap>
 	
 	<resultMap id="findPassword" type="egovframework.let.member.service.MemberVO">
-		<result property="esntlld" column="ESNTL_ID"/>
+		<result property="esntlId" column="ESNTL_ID"/>
 		<result property="emplyrId" column="EMPLYR_ID"/>
 		<result property="userNm" column="USER_NM"/>
 		<result property="emailAdres" column="EMAIL_ADRES"/>
